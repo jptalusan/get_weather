@@ -1,4 +1,4 @@
-from get_weather.client import dummy_api_call, get_weather_data
+from getweatherunderground.client import dummy_api_call, get_weather_data
 
 def test_dummy_api_call(monkeypatch):
     monkeypatch.setenv("API_KEY", "testkey123")

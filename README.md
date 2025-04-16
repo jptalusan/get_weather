@@ -25,6 +25,8 @@ This package includes a function to fetch and preprocess historical weather data
 
 ```python
 from get_weather.client import get_weather_data
+import os
+os.environ["API_KEY"] = "API_KEY"
 
 df = get_weather_data(
     weather_station="RJAA",

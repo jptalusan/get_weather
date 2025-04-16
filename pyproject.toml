@@ -3,8 +3,8 @@ requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "get_weather"
-version = "0.1.0"
+name = "get_weather_api"
+version = "0.1.1"
 description = "A simple API key example package"
 authors = [{ name="JP Talusan", email="jptalusan@gmail.com" }]
 readme = "README.md"
