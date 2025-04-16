@@ -9,7 +9,10 @@ description = "A simple API key example package"
 authors = [{ name="JP Talusan", email="jptalusan@gmail.com" }]
 readme = "README.md"
 requires-python = ">=3.7"
-dependencies = ["python-dotenv"]
+dependencies = ["python-dotenv", "pandas", "pytz", "requests"]
+
+[project.optional-dependencies]
+dev = ["pytest"]
 
 [project.urls]
 Homepage = "https://github.com/jptalusan/get_weather"
