@@ -48,9 +48,9 @@ def get_weather_data(
 
     # startDate = dateparser.parse(startDate)
     # endDate = dateparser.parse(endDate)
-    ends = pd.date_range(start=startDate, end=endDate, freq="ME")
+    ends = pd.date_range(start=startDate, end=endDate, freq="M")
 
-    starts = pd.date_range(start=startDate, end=endDate, freq="ME")
+    starts = pd.date_range(start=startDate, end=endDate, freq="M")
     starts = [s.replace(day=1) for s in starts]
     s_e = zip(starts, ends)
 

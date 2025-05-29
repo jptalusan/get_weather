@@ -24,11 +24,11 @@ This package includes a function to fetch and preprocess historical weather data
 ### 📘 Usage
 
 ```python
-from get_weather.client import get_weather_data
+import getweatherunderground.client as gwu
 import os
-os.environ["API_KEY"] = "API_KEY"
+os.environ["API_KEY"] = "ADD_API_KEY"
 
-df = get_weather_data(
+df = gwu.get_weather_data(
     weather_station="RJAA",
     country_code="JP",
     startDate="20190201",
@@ -37,6 +37,21 @@ df = get_weather_data(
 )
 print(df.head())
 ```
+
+##### Dataframe Sample
+| Feature         | Type     | Example               |
+|-----------------|----------|-----------------------|
+| Time            | datetime | 2019-01-31 00:00:00   |
+| tempf           | float    | 32.0                  |
+| dewPt           | int      | 32                    |
+| rh              | int      | 100                   |
+| wdir_cardinal   | string   | NNW                   |
+| wspd            | float    | 9.0                   |
+| gust            | int      | 0                     |
+| pressure        | float    | 29.47                 |
+| precip          | float    | 0.0                   |
+| wx_phrase       | string   | Light Snow Shower     |
+
 
 #### Parameters
 Parameters can be obtained from https://www.wunderground.com/. For a desired location follow these steps.
