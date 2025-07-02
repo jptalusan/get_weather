@@ -99,27 +99,6 @@ def get_weather_data(
 
     if len(weather_dfs) > 0:
         weather_dfs = pd.concat(weather_dfs)
-        try:
-            weather_dfs["Time"] = weather_dfs["Time"].dt.ceil("1h")
-            # Drop timezone
-            weather_dfs["Time"] = weather_dfs["Time"].dt.tz_localize(None)
-        except Exception:
-            pass
-
-        # Make sure data has no duplicate times (drop, keep last)
-        weather_dfs.drop_duplicates(subset=["Time"], keep="last", inplace=True)
-        weather_dfs["Time"] = pd.to_datetime(weather_dfs["Time"])
-        min_time = weather_dfs.Time.min().normalize()
-        max_time = weather_dfs.Time.max()
-        weather_dfs = weather_dfs.set_index("Time")
-        # Set new index
-        dt_range = pd.date_range(min_time, max_time, freq="1h")
-        # Fillna
-        weather_dfs = weather_dfs.reindex(dt_range).bfill().ffill()
-
-        weather_dfs.reset_index(drop=False, inplace=True)
-        weather_dfs.rename({"index": "Time"}, axis=1, inplace=True)
-
         return weather_dfs
     else:
         return pd.DataFrame()
